@@ -1,7 +1,7 @@
 /*
   Calculator Toy
 
-  Displays math equations to solve
+  Tool for kids wich displays math equations to solve
 
   circuit:
   - 3x4 button keypad matrix
@@ -11,7 +11,7 @@
   created 2023-09-20
   by Marco Graf
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/toneKeyboard
+  https://github.com/grafmar/Calculator_Toy
 */
 
 #include "pitches.h"
