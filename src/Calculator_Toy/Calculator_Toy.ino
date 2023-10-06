@@ -15,6 +15,7 @@
 */
 
 #include "pitches.h"
+#include "Calculation.h"
 #include <Adafruit_SSD1306.h>
 #include <splash.h>
 #include <Keypad.h>
@@ -55,6 +56,8 @@ int melody[] = {
 int noteDurations[] = {
   4, 8, 8, 4, 4, 4, 4, 4
 };
+
+Calculation myCalculation();
 
 char myString[20];
 uint8_t pos=0;
