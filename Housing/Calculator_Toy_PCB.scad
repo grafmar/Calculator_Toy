@@ -7,14 +7,16 @@ buttonPos = [
 pcbW=70;
 pcbH=91;
 
+Calculator_Toy_PCB();
 
-pcb(false);
-//pcb(true);
+module Calculator_Toy_PCB(holes=false) {
+pcb(holes);
 buttons();
 buzzer();
 switch();
 display();
 arduino();
+}
 
 module pcb(holes) {
     translate([0,0,-1])
@@ -66,9 +68,9 @@ module display(){
 
 module arduino(){
     translate([(2+17)*2.54,(3+15)*2.54,0]){
-        color("#222222")translate([-0.5*2.54,-0.5*2.54,0])cube([2.54,15*2.54,11]);   
-        color("#222222")translate([(6-0.5)*2.54,-0.5*2.54,0])cube([2.54,15*2.54,11]);   
-        color("#000088")translate([-0.5*2.54,-1.5*2.54,11])cube([7*2.54,17*2.54,1]);
-        color("#DDDDDD")translate([5.3-0.5*2.54,37.1-1.5*2.54,12.5])cube([7.5,9,4]);
+        color("#222222")translate([-0.5*2.54,-0.5*2.54,0])cube([2.54,15*2.54,2.5]);   
+        color("#222222")translate([(6-0.5)*2.54,-0.5*2.54,0])cube([2.54,15*2.54,2.5]);   
+        color("#000088")translate([-0.5*2.54,-1.5*2.54,2.5])cube([7*2.54,17*2.54,1]);
+        color("#DDDDDD")translate([5.3-0.5*2.54,37.1-1.5*2.54,2.5+1.5])cube([7.5,9,4]);
     }
 }
