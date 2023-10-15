@@ -12,17 +12,7 @@ void MelodyPlayer::play(melody_t melody) {
   for (uint16_t noteNum = 0U; noteNum < melody.voice1Len ; noteNum+=2) {
     uint16_t durAdapted = (uint16_t) ( (((uint32_t) melody.voice1[noteNum+1]) * MEL_BPM_DEFAULT) / melody.bpm);
     playNote(melody.voice1[noteNum], durAdapted);
-//    playNote(melody.voice1[noteNum].frequency, melody.voice1[noteNum].duration);
-//    playNote(melody.voice1[noteNum]);
   }
-
-  /*
-  for (uint16_t noteNum = 0U; noteNum < melody.voice1Len ; noteNum += 2) {
-    uint16_t durAdapted = (uint16_t) ( (((uint32_t) melody.voice1[noteNum+1]) * MEL_BPM_DEFAULT) / melody.bpm);
-//    note(melody.voice1[noteNum], durAdapted);
-    note(melody.voice1[noteNum], melody.voice1[noteNum+1]);
-  }
-  */
 }
 
 void MelodyPlayer::beep(uint16_t freq, uint16_t duration) {
