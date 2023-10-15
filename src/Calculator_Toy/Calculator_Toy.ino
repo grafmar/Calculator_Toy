@@ -60,7 +60,9 @@ void loop() {
     myString[pos]='\0';
     myCalculation.generateCalculation();
 //    myDisplay.showGame(3, 1234, "7+18=", myString);
-    myDisplay.showGame(3, 1234, myCalculation.getCalculationString().c_str(), myString);
+    myDisplay.showGame(3, 7, 14, myCalculation.getCalculationString().c_str(), myString);
+
+    if (key == '0') myDisplay.showFinalScore(123);
 
 /*
     if (key == '0') melodyPlayer.play(melodyGood);

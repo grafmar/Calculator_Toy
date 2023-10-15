@@ -45,7 +45,7 @@ void Display::showConfig() {
   m_display.display();
 }
 
-void Display::showGame(uint8_t life, uint16_t score, const char* calc, const char* result) {
+void Display::showGame(uint8_t life, uint8_t points, uint16_t score, const char* calc, const char* result) {
   m_display.clearDisplay();
   m_display.setTextColor(SSD1306_WHITE);
 
@@ -64,6 +64,14 @@ void Display::showGame(uint8_t life, uint16_t score, const char* calc, const cha
   m_display.setCursor(128-7*4,0);
   m_display.print(scoreBuf);
 
+  // points
+  m_display.setTextSize(1);
+  m_display.drawLine(93, 1, 96, 3, SSD1306_WHITE);
+  m_display.drawLine(93, 5, 96, 3, SSD1306_WHITE);
+  for (uint8_t i=0; i<points; i++) {
+    m_display.fillCircle(90-5*i, 3, 1, SSD1306_WHITE);
+  }
+
   // calculation
   m_display.setTextSize(2);
   m_display.setCursor(0,15);
@@ -75,3 +83,23 @@ void Display::showGame(uint8_t life, uint16_t score, const char* calc, const cha
 
   m_display.display();
 }
+
+void Display::showFinalScore(uint16_t score) {
+  m_display.clearDisplay();
+  m_display.setTextColor(SSD1306_WHITE);
+
+  // score
+  char scoreBuf[5];
+  sprintf(scoreBuf, "%04d", score);
+  m_display.setCursor(35,24);
+  m_display.setTextSize(2);
+  m_display.println(scoreBuf);
+  m_display.setTextSize(1);
+  m_display.setCursor(37,7);
+  m_display.print(F("Du hast"));
+  m_display.setCursor(17,49);
+  m_display.print(F("Punkte gemacht"));
+
+  m_display.display();
+}
+
