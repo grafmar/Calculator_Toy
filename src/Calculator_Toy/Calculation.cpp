@@ -1,7 +1,7 @@
 #include "Calculation.h"
 
 Calculation::Calculation() :
-  iMaxSmallNum(1),
+  iMaxSmallNum(10),
   enabledOps(3),
   activeOp(1),
   smallNumA(1),
@@ -16,13 +16,13 @@ Calculation::~Calculation() {
 
 String Calculation::getCalculationString() {
   if (activeOp & EN_PLUS) {
-    calcString = String("") + smallNumA + " + " + smallNumB + " = ";
+    calcString = String("") + smallNumA + F("+") + smallNumB + F("=");
   } else if (activeOp & EN_MINUS) {
-    calcString = String("") + bigNum + " - " + smallNumA + " = ";
+    calcString = String("") + bigNum + F("-") + smallNumA + F("=");
   } else if (activeOp & EN_MULT) {
-    calcString = String("") + smallNumA + " * " + smallNumB + " = ";
+    calcString = String("") + smallNumA + F("*") + smallNumB + F("=");
   } else {
-    calcString = String("") + bigNum + " : " + smallNumA + " = ";
+    calcString = String("") + bigNum + F(":") + smallNumA + F("=");
   }
   return calcString;
 }

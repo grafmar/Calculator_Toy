@@ -39,7 +39,7 @@ byte colPins[COLS] = {8, 7, 6}; //connect to the column pinouts of the keypad
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
-Calculation myCalculation();
+Calculation myCalculation;
 
 char myString[20];
 uint8_t pos=0;
@@ -58,14 +58,17 @@ void loop() {
     if (pos>18) pos=0;
     myString[pos++]=key;
     myString[pos]='\0';
-    
-    myDisplay.showGame(myString);
+    myCalculation.generateCalculation();
+//    myDisplay.showGame(3, 1234, "7+18=", myString);
+    myDisplay.showGame(3, 1234, myCalculation.getCalculationString().c_str(), myString);
 
+/*
     if (key == '0') melodyPlayer.play(melodyGood);
     if (key == '1') melodyPlayer.play(melodyBad);
     if (key == '2') melodyPlayer.play(melodyScoreUp);
     if (key == '3') melodyPlayer.play(melodyVictory);
     if (key == '4') melodyPlayer.play(melodyFinishDrum);
+    */
   }
 
   // check if '*' pressed for 2s
@@ -77,8 +80,6 @@ void loop() {
     }
     if ((millis()-resetMillis) > 2000) {
       resetStarted = false;
-      // melodyPlayer.play(melodyCollection[11]);
-      //melodyPlayer.play(melodyCollection[0]);
     }
   } else {
     resetStarted = false;

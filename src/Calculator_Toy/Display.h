@@ -17,7 +17,7 @@ public:
   void begin();
 
   void showConfig();
-  void showGame(String calc);
+  void showGame(uint8_t life, uint16_t score, const char* calc, const char* result);
 
 private:
 
