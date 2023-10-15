@@ -17,7 +17,8 @@ public:
   void begin();
 
   void showConfig();
-  void showGame(uint8_t life, uint16_t score, const char* calc, const char* result);
+  void showGame(uint8_t life, uint8_t points, uint16_t score, const char* calc, const char* result);
+  void showFinalScore(uint16_t score);
 
 private:
 
