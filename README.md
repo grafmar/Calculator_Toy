@@ -19,7 +19,7 @@ The hardware consists of:
 <img src="doc/PCB_front.jpg" alt="PCB front" width="30%"/><br>
 
 <img src="doc/PCB_back.jpg" alt="PCB back" width="40%"/>
-<img src="doc/PCB_side.jpg" alt="PCB side" width="50%"/>
+<img src="doc/PCB_side.jpg" alt="PCB side" width="45%"/>
 
 
 The Display is supported with an additional pin-header on top, so the display is flush
@@ -59,7 +59,7 @@ for any button presses. The Buttons are designed with engraved numbers and symbo
 
 <img src="doc/Housing_inside.jpg" alt="Housing inside" width="60%"/><br>
 
-<img src="doc/Housing_back.jpg" alt="Housing back" width="30%"/>
+<img src="doc/Housing_back.jpg" alt="Housing back" width="25%"/>
 <img src="doc/Housing_side.jpg" alt="Housing side" width="35%"/>
 <img src="doc/Housing_top.jpg" alt="Housing top" width="30%"/>
 
