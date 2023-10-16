@@ -16,14 +16,53 @@ The hardware consists of:
 * Buzzer
 
 <img src="HW/Calculator_Toy_Steckplatine.png" alt="Wiring of hardware" width="50%"/>
+<img src="doc/PCB_front.jpg" alt="PCB front" width="30%"/><br>
+
+<img src="doc/PCB_back.jpg" alt="PCB back" width="40%"/>
+<img src="doc/PCB_side.jpg" alt="PCB side" width="50%"/>
+
+
+The Display is supported with an additional pin-header on top, so the display is flush
+to the housing.
+
+<img src="doc/PCB_display_support.jpg" alt="Display support" width="50%"/>
+
 
 ## Software
 The software is compiled in Arduino IDE and uploaded to the Arduino Nano.
+It was tricky to fit all the things into the memory of the Arduino Nano.
+
+<img src="doc/Display_Config.png" alt="Display Config" width="30%"/>
+
+First the configuration screeen is shown to configure which operations are used in the
+game and how big the numbers may be. For the operations it can be choosen from plus,
+minus, multiplication and division. The number-space is defined by defining the maximum
+small numbers. So the sum, the minuend, the dividend and product may be bigger.
+
+<img src="doc/Display_Game.png" alt="Display Game" width="30%"/>
+
+Then the calculation game is started. There are three lives represented as hearts. If an
+answer of the calculation is wrong, it costs a live. If the calculation is right, points
+are earned. This depends on the time used to solve the calculation. Besides the score points
+are shown which decrease the more time is needed. The remaining points are added to the
+score if the right answer is given.
+
+<img src="doc/Display_Final_Score.png" alt="Display Final Score" width="30%"/>
+
+If the all lives were lost, the reached score is shown.
 
 ## Housing / Enclosure
 The housing is created with a sliding back to close the housing and support the PCB
 for any button presses. The Buttons are designed with engraved numbers and symbols.
 <img src="doc/Calculator_Toy_Rendered.png" alt="Rendered Housing" width="50%"/>
+<img src="doc/Deivce_front_complete.jpg" alt="Finished device" width="40%"/><br>
+
+<img src="doc/Housing_inside.jpg" alt="Housing inside" width="60%"/><br>
+
+<img src="doc/Housing_back.jpg" alt="Housing back" width="30%"/>
+<img src="doc/Housing_side.jpg" alt="Housing side" width="35%"/>
+<img src="doc/Housing_top.jpg" alt="Housing top" width="30%"/>
+
 
 ## Author
 [Marco Graf](https://github.com/grafmar)
