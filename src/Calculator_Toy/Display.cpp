@@ -38,9 +38,8 @@ void Display::showConfig() {
   // hint
   m_display.setTextSize(1);
   m_display.setCursor(0,63-2*7);
-  m_display.println("< Loeschen/Ende");
-  m_display.println("> Start");
-  //m_display.println("> Start/Eingabe");
+  m_display.println(F("< Loeschen/Ende"));
+  m_display.println(F("> Start/Eingabe"));
 
   m_display.display();
 }
