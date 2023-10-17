@@ -16,7 +16,7 @@ public:
 
   void begin();
 
-  void showConfig();
+  void showConfig(uint8_t operations, String maxSmallNum, bool enteringNumber);
   void showGame(uint8_t life, uint8_t points, uint16_t score, const char* calc, const char* result);
   void showFinalScore(uint16_t score);
 

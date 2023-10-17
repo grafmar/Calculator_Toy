@@ -12,6 +12,7 @@ Calculation myCalculation;
 
 Game::Game() :
   m_state(GameState::CONFIG),
+  m_isEnterNumber(false),
   m_score(0U),
   m_lifes(0U),
   m_points(0U),
@@ -24,7 +25,7 @@ Game::~Game() {
 
 void Game::begin() {
     myDisplay.begin();
-    myDisplay.showConfig();
+    myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
 }
 
 void Game::handle(char key) {
@@ -42,15 +43,57 @@ void Game::handle(char key) {
 }
 
 void Game::handleConfig(char key) {
-  switch(key) {
-    case '>':
-      enterGame();
-      break;
+  bool updateScreen = false;
+  if (m_isEnterNumber) {
+    if ((key == '>') && (m_resultPos > 0)) {
+      myCalculation.setMaxSmallNum(atoi(m_result));
+      updateScreen = true;
+      m_isEnterNumber = false;
+    } else {
+      handleEnterNumber(key,4);
+      showConfigNumber();
+    }
+  } else {
+    switch(key) {
+      case '1':
+        toggleOperation(Calculation::EN_PLUS);
+        updateScreen = true;
+        break;
 
-    case KeypadReader::ESC_KEY:
-    case KeypadReader::NO_KEY:
-    default:
-      break;
+      case '2':
+        toggleOperation(Calculation::EN_MINUS);
+        updateScreen = true;
+        break;
+
+      case '3':
+        toggleOperation(Calculation::EN_MULT);
+        updateScreen = true;
+        break;
+
+      case '4':
+        toggleOperation(Calculation::EN_DIV);
+        updateScreen = true;
+        break;
+
+      case '5':
+        m_isEnterNumber=true;
+        m_resultPos=0;
+        m_result[0]='\0';
+        showConfigNumber();
+        break;
+
+      case '>':
+        enterGame();
+        break;
+
+      case KeypadReader::ESC_KEY:
+      case KeypadReader::NO_KEY:
+      default:
+        break;
+    }
+  }
+  if (updateScreen) {
+    myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
   }
 }
 
@@ -82,7 +125,7 @@ void Game::handleScore(char key) {
 }
 
 void Game::enterConfig() {
-  myDisplay.showConfig();
+  myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
   m_state = GameState::CONFIG;
 }
 
@@ -105,4 +148,28 @@ void Game::newGameStep() {
   m_resultPos = 0;
   m_result[0] = '\0';
   myCalculation.generateCalculation();
+}
+
+void Game::toggleOperation(uint8_t op) {
+  uint8_t setOp = myCalculation.getOperations();
+  if (setOp != op) { // only toggle if other operations are set
+    setOp = setOp ^ op;
+    myCalculation.setOperations(setOp);
+  }
+}
+
+void Game::showConfigNumber() {
+  myDisplay.showConfig(myCalculation.getOperations(), String(m_result), m_isEnterNumber);  
+}
+
+void Game::handleEnterNumber(char key, uint8_t maxDigits) {
+  if ((key >= '0') && (key <= '9') && (m_resultPos < maxDigits)) {
+    m_result[m_resultPos++] = key;
+    m_result[m_resultPos] = '\0';
+  }
+  if ((key == '<') && (m_resultPos > 0)) {
+    m_resultPos--;
+    m_result[m_resultPos] = '\0';
+  }
+
 }
