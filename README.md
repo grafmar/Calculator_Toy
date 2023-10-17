@@ -51,6 +51,8 @@ score if the right answer is given.
 
 If the all lives were lost, the reached score is shown.
 
+[Here is a life simulation of the circuit and code](https://wokwi.com/projects/378812103614159873)
+
 ## Housing / Enclosure
 The housing is created with a sliding back to close the housing and support the PCB
 for any button presses. The Buttons are designed with engraved numbers and symbols.
