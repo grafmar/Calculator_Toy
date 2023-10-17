@@ -1,4 +1,7 @@
+#include "Adafruit_SSD1306.h"
 #include "Display.h"
+#include "Calculation.h"
+#include <String.h>
 
 // Heart icon
 static const unsigned char PROGMEM heart_8x7[] =
@@ -24,22 +27,43 @@ void Display::begin() {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;); // Don't proceed, loop forever
   }
-  m_display.display();
-  delay(1000); // Pause for 2 seconds
-
-  showConfig();
+  //m_display.display();
+  //delay(1000); // Pause for 2 seconds
 }
 
-void Display::showConfig() {
+void Display::showConfig(uint8_t operations, String maxSmallNum, bool enteringNumber) {
+  String ops = "";
+  ops += String((operations&Calculation::EN_PLUS) != 0 ? "+" : "");
+  ops += String((operations&Calculation::EN_MINUS) != 0 ? "-" : "");
+  ops += String((operations&Calculation::EN_MULT) != 0 ? "*" : "");
+  ops += String((operations&Calculation::EN_DIV) != 0 ? ":" : "");
+                    
   m_display.clearDisplay();
   m_display.setTextColor(SSD1306_WHITE);
   m_display.setTextSize(1);
 
-  // hint
-  m_display.setTextSize(1);
-  m_display.setCursor(0,63-2*7);
+  // hint1
+  m_display.setCursor(0,63-4*8);
+  m_display.println(F("1 +   2 -   3 *   4 :"));
+  m_display.println(F("5 Max. kleine Zahl"));
   m_display.println(F("< Loeschen/Ende"));
   m_display.println(F("> Start/Eingabe"));
+
+  // operations
+  m_display.setCursor(0,4);
+  m_display.println(F("Operation"));
+  m_display.setCursor(0,18);
+  m_display.println(F("Max Zahl"));
+
+  m_display.setTextSize(2);
+  m_display.setCursor(70,0);
+  m_display.println(ops);
+  m_display.setCursor(70,14);
+  if (enteringNumber) {
+    m_display.fillRect(70,14,48,14, SSD1306_WHITE);
+    m_display.setTextColor(SSD1306_BLACK);
+  }
+  m_display.println(maxSmallNum);
 
   m_display.display();
 }

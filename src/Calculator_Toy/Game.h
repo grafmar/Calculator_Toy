@@ -22,9 +22,16 @@ private:
   void enterScore();
 
   void newGameStep();
+
+  void toggleOperation(uint8_t op);
+
+  void showConfigNumber();
+
+  void handleEnterNumber(char key, uint8_t maxDigits);
   
   enum GameState {CONFIG, GAME, SCORE};
   GameState m_state;
+  bool m_isEnterNumber;
   uint16_t m_score;
   uint8_t m_lifes;
   uint8_t m_points;
