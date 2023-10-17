@@ -1,7 +1,6 @@
 #include "Adafruit_SSD1306.h"
 #include "Display.h"
 #include "Calculation.h"
-#include <String.h>
 
 // Heart icon
 static const unsigned char PROGMEM heart_8x7[] =
