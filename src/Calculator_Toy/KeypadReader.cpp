@@ -28,7 +28,7 @@ char KeypadReader::getKey(void) {
   char key = keypad.getKey();
 
   // check if '<' pressed for 2s
-  KeyState myKeyState = keypad.key[keypad.findInList('*')].kstate;
+  KeyState myKeyState = keypad.key[keypad.findInList('<')].kstate;
   if ((myKeyState == PRESSED) || (myKeyState == HOLD)) {
     if (!m_resetStarted){
       m_resetStarted=true;
