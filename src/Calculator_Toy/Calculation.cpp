@@ -37,10 +37,10 @@ uint16_t Calculation::getResult() {
 
 void Calculation::generateCalculation() {
   do {
-    activeOp = ((1<<random(0,3)) & enabledOps);
+    activeOp = ((1<<random(0,3+1)) & enabledOps);
   } while (activeOp == 0);
-  smallNumA = random(1,iMaxSmallNum);
-  smallNumB = random(1,iMaxSmallNum);
+  smallNumA = random(1,iMaxSmallNum+1);
+  smallNumB = random(1,iMaxSmallNum+1);
   
   if ((activeOp & EN_PLUS) || (activeOp & EN_MINUS)) {
     bigNum = smallNumA + smallNumB;

@@ -50,7 +50,7 @@ const uint16_t melodyFinishDrum_voice[] = {
   MEL_TONE_G(3),  MEL_NOTE_8TH,
   MEL_TONE_A(3),  MEL_NOTE_4TH,
   MEL_TONE_G(3),  MEL_NOTE_4TH,
-  MEL_PAUSE,      MEL_NOTE_4TH,
+  MEL_PAUSE,      MEL_NOTE_8TH,
   MEL_TONE_H(3),  MEL_NOTE_4TH,
   MEL_TONE_C(4),  MEL_NOTE_4TH};
 const melody_t melodyFinishDrum = { 240, MEL_LENGTH(melodyFinishDrum_voice), melodyFinishDrum_voice};
