@@ -4,7 +4,8 @@ Device for kids which generates math equations to solve.
 ## Required SW
 * [Arduino IDE](https://www.arduino.cc/en/main/software)
 * Adafruit_GFX library
-* Keypad Library
+* Adafruit SSD1306 library
+* Keypad library
 
 ## Hardware
 The hardware consists of:
