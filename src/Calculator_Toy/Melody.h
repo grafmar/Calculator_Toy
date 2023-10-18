@@ -15,16 +15,8 @@
  ** Constants, Makros and type definitions                                   **
  ******************************************************************************/
 
-typedef struct {
-    const uint16_t    bpm;
-    const uint16_t    voice1Len;
-    const uint16_t * const voice1;
-} melody_t;
-
 /// Shifts the given frequency (of octave 4) to the given octave
-//lint -emacro( 506, MEL_TONE_SHIFT_TO_OCTAVE )
-//lint -emacro( 778, MEL_TONE_SHIFT_TO_OCTAVE )
-#define MEL_TONE_SHIFT_TO_OCTAVE(freq, x)   ((x >= 4) ? (freq << (x-4)) : (freq >> (4-x)))
+#define MEL_TONE_SHIFT_TO_OCTAVE(freq, x)   (((x >= 4) ? (freq << (x-4)) : (freq >> (4-x)))/8) // divide by 8, later multiply
 
 /// Tone definition C  . Use octave number as parameter MEL_TONE_A(4) -> 440 Hz
 #define MEL_TONE_C(x)                       MEL_TONE_SHIFT_TO_OCTAVE(262, x)
@@ -54,10 +46,7 @@ typedef struct {
 /// Define a puase as freqency 0 Hz
 #define MEL_PAUSE                           0
 
-/// Default BPM is set to 256 BPM
-#define MEL_BPM_DEFAULT     256
-
-#define MEL_NOTE_4TH        (60000LL / MEL_BPM_DEFAULT)                         ///< 1/4 Note length
+#define MEL_NOTE_4TH        (232/2)                                               ///< 1/4 Note length (232ms refers to ~259 BPM) divided by 2 to later multiply
 #define MEL_NOTE_8TH        (MEL_NOTE_4TH / 2)                                  ///< 1/8 Note length
 #define MEL_NOTE_16TH       (MEL_NOTE_4TH / 4)                                  ///< 1/16 Note length
 #define MEL_NOTE_32TH       (MEL_NOTE_4TH / 8)                                  ///< 1/32 Note length

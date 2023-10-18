@@ -31,8 +31,6 @@ private:
   
   void handlePointDecreasing();
 
-  static const uint32_t POINT_DECREASE_TIMES[10];
-
   enum GameState {CONFIG, GAME, SCORE};
   GameState m_state;
   bool m_isEnterNumber;

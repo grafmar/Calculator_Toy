@@ -8,10 +8,12 @@ MelodyPlayer::MelodyPlayer(uint8_t buzzerIO) :
 MelodyPlayer::~MelodyPlayer() {
 }
 
-void MelodyPlayer::play(melody_t melody) {
-  for (uint16_t noteNum = 0U; noteNum < melody.voice1Len ; noteNum+=2) {
-    uint16_t durAdapted = (uint16_t) ( (((uint32_t) melody.voice1[noteNum+1]) * MEL_BPM_DEFAULT) / melody.bpm);
-    playNote(melody.voice1[noteNum], durAdapted);
+void MelodyPlayer::play(uint8_t* melody) {
+  const uint16_t melodyLength = melody[0];
+  for (uint16_t noteNum = 0U; noteNum < melodyLength ; noteNum++) {
+    // freqency was divided by 8 to fit uint8_t
+    // length was divided by 2
+    playNote(8*melody[2*noteNum+1], 2*melody[2*noteNum+2]); 
   }
 }
 
