@@ -21,16 +21,6 @@ public:
 
   /**
   ******************************************************************************
-  * \brief   Beeps at the given frequency fot the given duration
-  *
-  * \param   freq        Frequency to beep
-  * \param   duration    Duration of the beep in [ms]
-  * \return  -
-  */
-  void beep(uint16_t freq, uint16_t duration);
-
-  /**
-  ******************************************************************************
   * \brief   Plays a the note at the given frequency fot the given duration
   *          with a slight pause at the end to recognize the note.
   *
