@@ -15,12 +15,6 @@ void MelodyPlayer::play(melody_t melody) {
   }
 }
 
-void MelodyPlayer::beep(uint16_t freq, uint16_t duration) {
-    tone(m_buzzerIO, freq, duration);
-    delay(duration*1.3);
-    noTone(m_buzzerIO);
-}
-
 void MelodyPlayer::playNote(uint16_t freq, uint16_t duration) {
   if (freq == MEL_PAUSE) {
       pause(duration);
