@@ -11,20 +11,6 @@ MelodyPlayer melodyPlayer(BUZZER);
 Display myDisplay;
 Calculation myCalculation;
 
-// Points decrease after this time. The position is the points left.
-const uint32_t Game::POINT_DECREASE_TIMES[10] = {
-  0000, //  1 point does not decrease
-  9000, //  2 points
-  8000, //  3 points
-  7000, //  4 points
-  6000, //  5 points
-  5000, //  6 points
-  4000, //  7 points
-  3000, //  8 points
-  2000, //  9 points
-  1000  // 10 points
-};
-
 Game::Game() :
   m_state(GameState::CONFIG),
   m_isEnterNumber(false),
@@ -130,14 +116,14 @@ void Game::handleGame(char key) {
       // wrong :-(
       m_lifes--;
       if (m_lifes > 0) {
-        // go on
-        melodyPlayer.play(melodyBad);
-        newGameStep();
+          // go on
+          melodyPlayer.play(melodyBad);
+          newGameStep();
       } else {
-        // finished
-        enterScore();
-        //melodyPlayer.play(melodyFinishDrum);
-        return;
+          // finished
+          enterScore();
+          melodyPlayer.play(melodyFinishDrum);
+          return;
       }
     }
   } else {
@@ -160,12 +146,13 @@ void Game::enterConfig() {
 }
 
 void Game::enterGame() {
+  randomSeed(millis());
   m_score = 0U;
   m_lifes = 3U;
   newGameStep();
   myDisplay.showGame(m_lifes, m_points, m_score, myCalculation.getCalculationString().c_str(), m_result);
   m_state = GameState::GAME;
-  // melodyPlayer.play(melodyVictory);
+  melodyPlayer.play(melodyVictory);
 }
 
 void Game::enterScore() {
@@ -202,11 +189,10 @@ void Game::handleEnterNumber(char key, uint8_t maxDigits) {
     m_resultPos--;
     m_result[m_resultPos] = '\0';
   }
-
 }
 
 void Game::handlePointDecreasing() {
-  if ((m_points > 1) && ((millis() - m_pointsTime) >= POINT_DECREASE_TIMES[m_points])) {
+  if ((m_points > 1) && ((millis() - m_pointsTime) >= ((11 - m_points) * 1000U))) {
     m_pointsTime = millis();
     m_points--;
   }

@@ -17,7 +17,7 @@ public:
   * \param   buzTone     The tone to play
   * \return  -
   */
-  void play(melody_t melody);
+  void play(uint8_t* melody);
 
   /**
   ******************************************************************************
