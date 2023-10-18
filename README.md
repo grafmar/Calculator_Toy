@@ -16,11 +16,9 @@ The hardware consists of:
 * [Push Button Switch 7x7x12mm](https://www.aliexpress.com/item/32826123110.html)
 * Buzzer
 
-<img src="HW/Calculator_Toy_Steckplatine.png" alt="Wiring of hardware" width="50%"/>
-<img src="doc/PCB_front.jpg" alt="PCB front" width="30%"/><br>
+<img src="HW/Calculator_Toy_Steckplatine.png" alt="Wiring of hardware" width="50%"/> <img src="doc/PCB_front.jpg" alt="PCB front" width="30%"/><br>
 
-<img src="doc/PCB_back.jpg" alt="PCB back" width="40%"/>
-<img src="doc/PCB_side.jpg" alt="PCB side" width="45%"/>
+<img src="doc/PCB_back.jpg" alt="PCB back" width="40%"/> <img src="doc/PCB_side.jpg" alt="PCB side" width="45%"/>
 
 
 The Display is supported with an additional pin-header on top, so the display is flush
@@ -57,14 +55,12 @@ If the all lives were lost, the reached score is shown.
 ## Housing / Enclosure
 The housing is created with a sliding back to close the housing and support the PCB
 for any button presses. The Buttons are designed with engraved numbers and symbols.
-<img src="doc/Calculator_Toy_Rendered.png" alt="Rendered Housing" width="50%"/>
-<img src="doc/Deivce_front_complete.jpg" alt="Finished device" width="40%"/><br>
+
+<img src="doc/Calculator_Toy_Rendered.png" alt="Rendered Housing" width="50%"/> <img src="doc/Deivce_front_complete.jpg" alt="Finished device" width="40%"/><br>
 
 <img src="doc/Housing_inside.jpg" alt="Housing inside" width="60%"/><br>
 
-<img src="doc/Housing_back.jpg" alt="Housing back" width="25%"/>
-<img src="doc/Housing_side.jpg" alt="Housing side" width="35%"/>
-<img src="doc/Housing_top.jpg" alt="Housing top" width="30%"/>
+<img src="doc/Housing_back.jpg" alt="Housing back" width="25%"/> <img src="doc/Housing_side.jpg" alt="Housing side" width="35%"/> <img src="doc/Housing_top.jpg" alt="Housing top" width="30%"/>
 
 
 ## Author
