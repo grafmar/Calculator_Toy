@@ -6,8 +6,7 @@ Calculation::Calculation() :
   activeOp(1),
   smallNumA(1),
   smallNumB(1),
-  bigNum(2),
-  calcString()
+  bigNum(2)
 {
 }
 
@@ -15,6 +14,7 @@ Calculation::~Calculation() {
 }
 
 String Calculation::getCalculationString() {
+  String calcString;
   if (activeOp & EN_PLUS) {
     calcString = String("") + smallNumA + F("+") + smallNumB + F("=");
   } else if (activeOp & EN_MINUS) {

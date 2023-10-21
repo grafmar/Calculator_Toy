@@ -141,8 +141,8 @@ void Game::handleScore(char key) {
 }
 
 void Game::enterConfig() {
-  myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
   m_state = GameState::CONFIG;
+  myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
 }
 
 void Game::enterGame() {
