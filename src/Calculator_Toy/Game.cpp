@@ -4,6 +4,7 @@
 #include "MelodyPlayer.h"
 #include "MelodyCollection.h"
 #include "Display.h"
+#include "BatteryMonitor.h"
 
 static const uint8_t BUZZER = 11;
 MelodyPlayer melodyPlayer(BUZZER);
@@ -25,6 +26,7 @@ Game::~Game() {
 }
 
 void Game::begin() {
+    BatteryMonitor::begin();
     myDisplay.begin();
     myDisplay.showConfig(myCalculation.getOperations(), String(myCalculation.getMaxSmallNum()), m_isEnterNumber);
 }
@@ -131,7 +133,7 @@ void Game::handleGame(char key) {
   }
 
   handlePointDecreasing();
-  myDisplay.showGame(m_lifes, m_points, m_score, myCalculation.getCalculationString().c_str(), m_result);
+  myDisplay.showGame(m_lifes, m_points, m_score, BatteryMonitor::getBat(), myCalculation.getCalculationString().c_str(), m_result);
 }
 
 void Game::handleScore(char key) {
@@ -150,7 +152,7 @@ void Game::enterGame() {
   m_score = 0U;
   m_lifes = 3U;
   newGameStep();
-  myDisplay.showGame(m_lifes, m_points, m_score, myCalculation.getCalculationString().c_str(), m_result);
+  myDisplay.showGame(m_lifes, m_points, m_score, BatteryMonitor::getBat(), myCalculation.getCalculationString().c_str(), m_result);
   m_state = GameState::GAME;
   melodyPlayer.play(melodyVictory);
 }

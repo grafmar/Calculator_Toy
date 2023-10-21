@@ -67,7 +67,7 @@ void Display::showConfig(uint8_t operations, String maxSmallNum, bool enteringNu
   m_display.display();
 }
 
-void Display::showGame(uint8_t life, uint8_t points, uint16_t score, const char* calc, const char* result) {
+void Display::showGame(uint8_t life, uint8_t points, uint16_t score, uint8_t bat, const char* calc, const char* result) {
   m_display.clearDisplay();
   m_display.setTextColor(SSD1306_WHITE);
 
@@ -87,12 +87,19 @@ void Display::showGame(uint8_t life, uint8_t points, uint16_t score, const char*
   m_display.print(scoreBuf);
 
   // points
-  m_display.setTextSize(1);
   m_display.drawLine(93, 1, 96, 3, SSD1306_WHITE);
   m_display.drawLine(93, 5, 96, 3, SSD1306_WHITE);
   for (uint8_t i=0; i<points; i++) {
     m_display.fillCircle(90-5*i, 3, 1, SSD1306_WHITE);
   }
+
+  // battery
+  m_display.drawRect(88, 59, 8, 4, SSD1306_WHITE);
+  m_display.drawRect(87, 60, 1, 2, SSD1306_WHITE);
+  m_display.setCursor(128-7*4,56);
+  m_display.print(bat);
+  m_display.print(F("%"));
+
 
   // calculation
   m_display.setTextSize(2);

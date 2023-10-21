@@ -12,16 +12,14 @@
 #include "Melody.h"
 
 static const uint8_t melodyGood[] = {
-  3, // number of notes
+  2, // number of notes
   MEL_TONE_F(6),   100,
-  MEL_PAUSE,        25,
-  MEL_TONE_AIS(6), 75};
+  MEL_TONE_AIS(6), 100};
 
 
 static const uint8_t melodyBad[] = {
-  3, // number of notes
+  2, // number of notes
   MEL_TONE_F(6),   100,
-  MEL_PAUSE,        25,
   MEL_TONE_AIS(5), 250};
 
 static const uint8_t melodyScoreUp[] = {
