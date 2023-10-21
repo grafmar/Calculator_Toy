@@ -27,6 +27,12 @@ to the housing.
 <img src="doc/PCB_display_support.jpg" alt="Display support" width="50%"/>
 
 
+To monitor the battery a voltage divider has been added from Vin to the analog input A0
+with 47k and 10k resistors and a 1uF capacitor.
+
+<img src="doc/Voltage_divider.jpg" alt="Added voltage divier" width="50%"/>
+
+
 ## Software
 The software is compiled in Arduino IDE and uploaded to the Arduino Nano.
 It was tricky to fit all the things into the memory of the Arduino Nano.
