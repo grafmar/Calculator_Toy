@@ -31,7 +31,6 @@ private:
   uint16_t smallNumA;
   uint16_t smallNumB;
   uint16_t bigNum;
-  String calcString;
 };
 
 #endif // CALCULATION_H
