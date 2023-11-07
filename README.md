@@ -64,6 +64,10 @@ for any button presses. The Buttons are designed with engraved numbers and symbo
 
 <img src="doc/Calculator_Toy_Rendered.png" alt="Rendered Housing" width="50%"/> <img src="doc/Deivce_front_complete.jpg" alt="Finished device" width="40%"/><br>
 
+Added a lid to screw the housing shut and used filament change to add a second color for the inlets of the keys.
+
+<img src="docCalculator_Toy_Rendered_Inlet.png" alt="Rendered Housing with inlet keys" width="50%"/><br>
+
 <img src="doc/Housing_inside.jpg" alt="Housing inside" width="60%"/><br>
 
 <img src="doc/Housing_back.jpg" alt="Housing back" width="25%"/> <img src="doc/Housing_side.jpg" alt="Housing side" width="35%"/> <img src="doc/Housing_top.jpg" alt="Housing top" width="30%"/>
