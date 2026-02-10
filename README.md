@@ -1,5 +1,11 @@
 # Calculator_Toy
-Device for kids which generates math equations to solve.
+Device for kids which generates math equations to solve. You can configure the following:
+- Set the maximum numbers too choose from randomly (1 up to 9999)
+- Set the operation to build:
+  - Addition (+)
+  - Substraction (-)
+  - Multiplication (*)
+  - Division (:)
 
 ## Required SW
 * [Arduino IDE](https://www.arduino.cc/en/main/software)
